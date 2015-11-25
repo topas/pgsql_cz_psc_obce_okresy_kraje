@@ -16913,3 +16913,7 @@ INSERT INTO psc (id, psc, nazev, nazevposty, nazevokresu, okresid, krajid) VALUE
 (16787, '37401',  'Žumberk',  'Trhové Sviny', 'České Budějovice', 3,  1),
 (16788, '26301',  'Županovice', 'Dobříš', 'Příbram',  60, 1),
 (16789, '37881',  'Županovice', 'Slavonice',  'Jindřichův Hradec',  33, 1);
+
+UPDATE psc SET nazevokresu='Praha' WHERE nazevokresu LIKE 'Hlavní město Praha';
+UPDATE psc a SET okresid=b.id FROM  okres b WHERE a.nazevokresu=b.nazev;
+UPDATE psc a SET krajid=b.krajid FROM  okres b WHERE a.okresid=b.id;
